@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.peggy.dao.BookDao">
+    <!--根据id获取用户-->
+    <select id="getBookID" resultType="Books" parameterType="int">
+        select bookID,bookName,bookCounts,detail from books where bookID=#{boolkID}
+    </select>
+
+    <!--获取所有的用户-->
+    <select id="getAllBook" resultType="Books">
+        select bookID,bookName,bookCounts,detail from books
+    </select>
+    <!--添加一本书籍-->
+    <insert id="addBook" parameterType="Books">
+        insert into books (bookName,bookCounts,detail)
+        values(#{bookName},#{bookCounts},#{detail})
+    </insert>
+</mapper>
